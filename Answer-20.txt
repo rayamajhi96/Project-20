@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule created="1562012609918" id="4028819f6baa275e016baf34ed7a00ac" language="beanshell" modified="1564355449470" name="Q)20">
+  <Description>Allows all objects to be selected (no filtering)</Description>
+  <Source>
+  import sailpoint.object.Identity;
+  import sailpoint.object.Link;
+  import java.util.ArrayList;
+  
+  Identity ide = context.getObjectByName(Identity.class,"pra.bina");
+  List link = ide.getLinks();
+  List ans = new ArrayList();
+  
+  for(Link ln : link){
+    //String app = ln.getStringAttribute(
+    String app = ln.getApplicationName();
+    //String name = app.getName();
+    ans.add(app);
+  }
+  
+  return ans;
+  </Source>
+</Rule>

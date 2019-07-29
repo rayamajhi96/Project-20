@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule created="1564253799863" id="4028819f6c084e93016c34cac5b7098c" language="beanshell" modified="1564371538121" name="Testing1">
+  <Description>All identities</Description>
+  <Source>
+  import sailpoint.object.Identity;
+  import sailpoint.object.ManagedAttribute;
+  import sailpoint.object.Link;
+  import sailpoint.object.Filter;
+  import java.util.ArrayList;
+  import sailpoint.object.Application;
+import sailpoint.object.QueryOptions;
+   
+ Filter filter1 = Filter.eq("application.name","Experts AD");
+  QueryOptions qo1 = new QueryOptions();
+  qo1.addFilter(filter1);
+  
+  
+  List ma = context.getObjects(ManagedAttribute.class, qo1);
+  List list2 = new ArrayList();
+  String appname ="";
+  
+  for(ManagedAttribute iden : ma) {
+  appname = iden.displayName;
+    list2.add(appname);
+  }
+  
+  return list2;
+
+</Source>
+</Rule>

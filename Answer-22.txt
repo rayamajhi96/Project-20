@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule created="1562188028613" id="4028819f6baa275e016bb9a99ac501c4" language="beanshell" modified="1564347504900" name="22">
+  <Description>All identities</Description>
+  <Source>
+  import sailpoint.object.Identity;
+  import sailpoint.object.Link;
+  import java.util.ArrayList;
+  import java.util.*;
+  
+  ManagedAttribute mattr = context.getObjectByName(Application.class, "Experts AD");
+  
+  List myList = new ArrayList();
+  
+  for(ManagedAttribute ma : mattr){
+  
+  String name = ma.getName();
+  myList.add(name);
+  
+  }
+  
+ return myList;
+
+  
+
+    
+  </Source>
+</Rule>
