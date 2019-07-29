@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule created="1562012609918" id="4028819f6baa275e016baf34ed7a00ac" language="beanshell" modified="1564373854030" name="Q)24(new)">
+  <Description>Allows all objects to be selected (no filtering)</Description>
+  <Source>
+  import sailpoint.object.Identity;
+  import sailpoint.object.Link;
+  import java.util.*;
+  
+  List idens = context.getObjects(Identity.class);
+  
+  HashSet ans = new HashSet();
+  
+  for (Identity id : idens){
+    Identity manager = id.getManager();
+    
+    //checks for empty manager arguments
+    if (manager != null){
+        //String name = manager.getName();
+        ans.add(manager);
+  
+    }
+  
+  }
+   return ans;
+  
+  
+  </Source>
+</Rule>
