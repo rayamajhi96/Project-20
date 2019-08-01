@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule created="1562188028613" id="4028819f6baa275e016bb9a99ac501c4" language="beanshell" modified="1564675948339" name="Task16">
+  <Description>All identities</Description>
+  <Source>
+  import sailpoint.object.Identity;
+  import sailpoint.object.Link;
+  import java.util.ArrayList;
+  import java.util.*;
+  
+  List myList = new ArrayList();
+  Identity id = context.getObjectByName(Identity.class, "avishek.paudel");
+  
+  //Returns Assigned Roles
+  List myList1 = id.getAssignedRoles();
+  
+  //Returns Detected Roles
+  List myList2 = id.getBundles();
+  
+  myList.add(myList1);
+  myList.add(myList2);
+  
+  return myList;
+  
+  
+  
+  
+
+    
+  </Source>
+</Rule>

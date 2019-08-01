@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule created="1564251547080" id="4028819f6c084e93016c34a865c8098a" language="beanshell" modified="1564675887254" name="Task17">
+  <Description>All identities</Description>
+  <Source>
+  import sailpoint.object.Identity;
+  import sailpoint.object.Link;
+  import sailpoint.object.Filter;
+  import sailpoint.object.ArrayList;
+  import sailpoint.object.Application;
+  import sailpoint.object.QueryOptions;
+  import sailpoint.object.ManagedAttribute;
+  import java.util.ArrayList;
+   
+  //Filters out inactive users
+  Filter filter = Filter.eq("inactive", false);
+  QueryOptions qo = new QueryOptions();
+  qo.addFilter(filter);
+  
+  List myList = new ArrayList();
+  
+  
+  //takes query as an argument here
+  List mans = context.getObjects(Identity.class, qo);
+  for(Identity ma : mans){
+  
+  String fname = ma.getStringAttribute("firstname");
+  String lname = ma.getStringAttribute("lastname");
+    
+  String name = fname+"-"+lname;
+  myList.add(name);
+  
+  
+  }
+  
+  return myList;
+ 
+
+  </Source>
+</Rule>

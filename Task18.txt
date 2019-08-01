@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule created="1562048655112" id="4028819f6baa275e016bb15aef080168" language="beanshell" modified="1564675912250" name="Task18">
+  <Description>Allows all objects to be selected (no filtering)</Description>
+  <Source>
+
+  import sailpoint.object.Identity;
+  import sailpoint.object.Link;
+  import sailpoint.object.Filter;
+  import sailpoint.object.ArrayList;
+  import sailpoint.object.Application;
+  import sailpoint.object.QueryOptions;
+  //import sailpoint.object.ManagedAttribute;
+  import java.util.ArrayList;
+   
+  //Filters out requestable entitlements
+  Filter filter = Filter.eq("requestable", true);
+  QueryOptions qo = new QueryOptions();
+  qo.addFilter(filter);
+  
+  List myList = new ArrayList();
+  
+  
+  //takes query as an argument here
+  List mans = context.getObjects(ManagedAttribute.class, qo);
+  for(ManagedAttribute ma : mans){
+  
+  String name = ma.getDisplayName();
+    
+    
+  myList.add(name);
+  
+  
+  }
+  
+  return myList;
+ 
+  
+  </Source>
+</Rule>

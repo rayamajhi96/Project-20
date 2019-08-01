@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule created="1562012609918" id="4028819f6baa275e016baf34ed7a00ac" language="beanshell" modified="1564679806114" name="Task15">
+  <Description>Allows all objects to be selected (no filtering)</Description>
+  <Source>
+  import sailpoint.object.Identity;
+  import sailpoint.object.Link;
+  import sailpoint.object.Filter;
+  import sailpoint.object.Application;
+  import sailpoint.object.QueryOptions;
+  import sailpoint.object.Workflow;
+  import sailpoint.object.ManagedAttribute;
+  import java.util.ArrayList;
+ 
+ 
+  //Filters out LCM Provisioning type
+  Filter filter = Filter.eq("type", "LCMProvisioning");
+  QueryOptions qo = new QueryOptions();
+  qo.addFilter(filter);
+  
+ 
+  
+  //takes query as an argument here
+  List Workflow = context.getObjects(Workflow.class, qo);
+  
+  
+
+  return Workflow;
+  
+  </Source>
+</Rule>
